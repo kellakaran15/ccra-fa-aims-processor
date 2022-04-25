@@ -8,12 +8,11 @@ module.exports = async function (context, req) {
 
     const mongoClient = await MongoClient;
     const db = await mongoClient.db(config.MONGO_DB);
-    const collection = db.collection('caseHeader');
+    const collection = db.collection('ccraCase');
 
     const FIDinfo = req.body.FIDInfo;
 
-
-    const FIDInformation = await collection.updateOne({ id: req.body.caseId }, { $set: { "FIDInfo": FIDinfo } });
+    const FIDInformation = await collection.updateOne({ id: req.body.caseId }, { $set: { "aimsData": FIDinfo } });
 
     const responseMessage = FIDInformation;
 
