@@ -12,7 +12,7 @@ module.exports = async function (context, req) {
 
     const FIDinfo = req.body.FIDInfo;
 
-    const FIDInformation = await collection.updateOne({ id: req.body.caseId }, { $set: { "aimsData": FIDinfo } });
+    const FIDInformation = await collection.updateOne({ "caseDetails.caseId": req.body.caseId }, { $set: { "aimsData": FIDinfo } });
 
     const responseMessage = FIDInformation;
 
